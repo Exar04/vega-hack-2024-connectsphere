@@ -27,7 +27,7 @@ export function SignIn() {
       setError("")
       setLoading(true)
       await signup(email, password)
-      navigate("/")
+      navigate("/home")
     } catch{
       setError("Failed to create an account")
     }

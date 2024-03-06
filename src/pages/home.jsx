@@ -4,17 +4,13 @@ export function Home() {
     const [wok, setwok] = useState(false)
     return (
         <div className="h-screen w-screen flex">
-            <div className="md:w-72 w-0 flex-none bg-slate-700 h-screen flex flex-col">{/*SideBar*/}
-                <div className=" text-3xl text-white font-bold font-serif m-4 flex-none">Logo</div>
-                <div className=" bg-yellow-400 flex-grow overflow-scroll">
-                    <div className="p-3 m-2 text-xl text-white bg-blue-400 rounded-full text-center">Home</div>
-                    <div className="p-3 m-2 text-xl text-white bg-blue-400 rounded-full text-center">Message</div>
-                </div>
-                <div className="bg-black h-24 flex-none">HEHE</div>
-            </div>
+            <Sidebar />
+
             <div className="h-screen w-full overflow-scroll">{/*homepage*/}
                 <div className="flex lg:flex-row flex-col">
-                    <div className="bg-gray-500 h-screen lg:basis-4/6">Page</div>
+                    <div className="bg-gray-500 h-screen lg:basis-4/6">
+                        he
+                    </div>
                     <div className="bg-gray-800 h-72 lg:basis-2/6">Page</div>
                 </div>
             </div>
@@ -23,17 +19,36 @@ export function Home() {
 }
 
 function Sidebar() {
+    const [SidebarPages, setSidebarPages] = useState(
+        [
+            {id:1, pagevar:"Home", link:"/home"},
+            {id:2, pagevar:"Messages", link:"/messages"},
+            {id:3, pagevar:"Events", link:"/events"},
+            {id:4, pagevar:"Post", link:"/Post"}
+        ])
+
+    const listOfSidebarPages = SidebarPages.map(Page =>
+        <div key={Page.id} className="p-3 m-2 text-2xl text-white hover:bg-zinc-700 rounded-full text-center">{Page.pagevar}</div>
+    )
+
     return (
-        <div className="w-72 flex-none bg-slate-700 h-screen">{/*SideBar*/}
-            <div className=" text-3xl text-white font-bold font-serif m-4">Logo</div>
-            <div className=" bg-yellow-400 " id="contentdata">
-                <div>Home</div>
-                <div>Messages</div>
-                <div>Profile</div>
+            <div className="md:w-72 w-0 flex-none bg-zinc-950 h-screen flex flex-col">{/*SideBar*/}
+                <div className=" text-3xl text-white font-bold font-serif p-4 flex-none flex items-center  border-zinc-400 border-b border-0">Connect<img width="60" height="60" className="ml-3" src="https://img.icons8.com/external-vitaliy-gorbachev-fill-vitaly-gorbachev/60/FFFFFF/external-sphere-graphic-design-vitaliy-gorbachev-fill-vitaly-gorbachev.png" alt="external-sphere-graphic-design-vitaliy-gorbachev-fill-vitaly-gorbachev"/></div>
+                <div className=" bg-black flex-grow overflow-scroll">
+                    {listOfSidebarPages}
+                </div>
+                <div className="bg-black h-24 flex-none text-xl border-zinc-400 text-white border-t border-0 flex items-center p-4 justify-between">
+                    <div>Username</div>
+                    <div className="bg-gray-700 w-12 h-12 rounded-full"></div>
+                </div>
             </div>
-        </div>
+
     )
 }
+
+
+
+
 
 function PopUpSidebar({setwok, wok}) {
     return (

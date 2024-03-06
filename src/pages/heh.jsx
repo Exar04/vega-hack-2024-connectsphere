@@ -15,7 +15,7 @@ export function Hehe() {
     // }
     return (
         <div>
-            hehe
+            heheoo
             {/* <input type="text" onChange={(e) => {su(e.target.value)}} />
             <input type="text" onChange={(e) => {sp(e.target.value)}} />
             <button onClick={docreateit}>sub</button> */}
