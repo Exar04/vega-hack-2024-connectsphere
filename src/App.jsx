@@ -8,17 +8,16 @@ import { SignIn } from "./pages/signup";
 
 function App() {
   return (
-    // <Router>
-    //   <AuthProvider>
-    //     <Routes>
-    //     <Route path="/" element={<Hehe/>} />
-    //     <Route path="/home" element={<PrivateRoute ><Home/></PrivateRoute>} />
-    //     <Route path="/signup" element={<SignIn/>} />
-    //     <Route path="/login" element={<Login/>} />
-    //     </Routes>
-    //   </AuthProvider>
-    // </Router>
-    <Home />
+    <Router>
+      <AuthProvider>
+        <Routes>
+        <Route path="/" element={<Hehe/>} />
+        <Route path="/home" element={<PrivateRoute ><Home/></PrivateRoute>} />
+        <Route path="/signup" element={<SignIn/>} />
+        <Route path="/login" element={<Login/>} />
+        </Routes>
+      </AuthProvider>
+    </Router>
   );
 }
 
