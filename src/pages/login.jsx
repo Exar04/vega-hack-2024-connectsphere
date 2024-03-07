@@ -25,7 +25,7 @@ export function Login() {
       setError("")
       setLoading(true)
       await login(email, password)
-      navigate("/")
+      navigate("/home")
     } catch{
       setError("Failed to login")
     }

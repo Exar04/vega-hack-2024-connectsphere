@@ -7,6 +7,8 @@ export function SignIn() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
+  const [username, setUsername] = useState("")
+  const [userType, setUserType] = useState("")
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
@@ -26,7 +28,7 @@ export function SignIn() {
     try{
       setError("")
       setLoading(true)
-      await signup(email, password)
+      await signup(email, password, username, userType)
       navigate("/home")
     } catch{
       setError("Failed to create an account")
@@ -45,6 +47,8 @@ export function SignIn() {
             <input onChange={(e) => { setEmail(e.target.value) }} className=" mt-0 w-full h-12 border-2 rounded-md my-8 text-center text-xl" placeholder="Email" />
             <input onChange={(e) => { setPassword(e.target.value) }} className="w-full h-12 border-2 rounded-md mb-8 text-center text-xl" placeholder="Password" />
             <input onChange={(e) => { setConfirmPassword(e.target.value) }} className="w-full h-12 border-2 rounded-md mb-8 text-center text-xl" placeholder="Confirm Password" />
+            <input onChange={(e) => { setUsername(e.target.value) }} className="w-full h-12 border-2 rounded-md mb-8 text-center text-xl" placeholder="UserName" />
+            <input onChange={(e) => { setUserType(e.target.value) }} className="w-full h-12 border-2 rounded-md mb-8 text-center text-xl" placeholder="UserType" />
             <div onClick={(e) => {handleSubmit()}} role="button" className=" bg-violet-600 h-12 rounded-lg text-center text-white font-bolt text-xl p-2">Sign Up</div>
 
           </div>
